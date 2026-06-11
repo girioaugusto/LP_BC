@@ -3,8 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BC Locações — Guindastes, Muncks e Jateamento Industrial | +30 anos</title>
-<meta name="description" content="Locação de guindastes (25 a 80 toneladas), caminhões munck articulados e jateamento industrial. Atendimento em todo o Brasil. Há mais de 30 anos.">
+<!-- JATEAMENTO removido — título original:
+<title>BC Locações — Guindastes, Muncks e Jateamento Industrial | +30 anos</title> -->
+<title>BC Locações — Guindastes e Muncks | +30 anos</title>
+<!-- JATEAMENTO removido — meta description original:
+<meta name="description" content="Locação de guindastes (25 a 80 toneladas), caminhões munck articulados e jateamento industrial. Atendimento em todo o Brasil. Há mais de 30 anos."> -->
+<meta name="description" content="Locação de guindastes (25 a 80 toneladas) e caminhões munck articulados. Atendimento em todo o Brasil. Há mais de 30 anos.">
 
 <link rel="icon" type="img" href="/assets/img/logo.png">
 
@@ -1737,6 +1741,42 @@ button {
   color: var(--azul-luminoso);
 }
 
+/* Endereço + e-mail na seção de contato (mesmo tom do restante da seção) */
+.cta-local {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--azul-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.cta-local a {
+  color: var(--azul-glow);
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.cta-local a:hover {
+  color: var(--branco);
+  border-color: var(--azul-luminoso);
+}
+
+.cta-local-sep {
+  color: var(--azul-medio);
+}
+
+/* As linhas de telefone e de endereço/e-mail herdavam "margin: 0 auto 48px" de
+   ".cta-final p" — aquele 48px embaixo do telefone criava o vão gigante até o
+   endereço. Zerando aqui, o espaço passa a ser só o gap (20px) do .cta-final-actions. */
+.cta-final-actions .cta-phone,
+.cta-final-actions .cta-local {
+  margin: 0;
+}
+
 /* ============================
    FOOTER
 ============================ */
@@ -2272,7 +2312,7 @@ button {
         <div class="hero-eyebrow">+ de 30 anos / Atendimento Nacional</div>
         <h1 class="hero-title">
           Guindastes, Muncks<br>
-          & Jateamento Industrial<br>
+          <!-- JATEAMENTO removido: & Jateamento Industrial<br> -->
           <span class="accent">com a segurança</span><br>
           que sua obra exige.
         </h1>
@@ -2379,7 +2419,7 @@ button {
 <section class="servicos" id="servicos">
   <div class="container">
     <div class="servicos-header reveal">
-      <div class="eyebrow">Soluções 01–03</div>
+      <div class="eyebrow">Soluções 01–02</div>
       <h2 class="section-title">
         Soluções completas para<br>
         içamento, transporte e<br>
@@ -2473,6 +2513,7 @@ button {
         </ul>
       </div>
 
+      <!-- JATEAMENTO removido — esta seção/serviço não existe mais:
       <div class="servico reveal">
         <div class="servico-num">03 / JATEAMENTO</div>
         <figure class="servico-imagem sem-imagem">
@@ -2498,6 +2539,7 @@ button {
           <li><span class="bullet-marker"></span><span><strong>Atendimento em todo o território nacional</strong></span></li>
         </ul>
       </div>
+      -->
 
     </div>
   </div>
@@ -2858,6 +2900,11 @@ button {
         ou
         <a href="tel:+5517996149259">(17) 99614-9259</a>
       </p>
+      <p class="cta-local">
+        <a href="https://www.google.com/maps/search/?api=1&query=Avenida%20do%20Can%C3%A1rio%2C%2026%2C%20Ol%C3%ADmpia%20-%20SP" target="_blank" rel="noopener">Av. do Canário, 26 — Olímpia/SP</a>
+        <span class="cta-local-sep">•</span>
+        <a href="mailto:bazilios@bazilios.com.br">bazilios@bazilios.com.br</a>
+      </p>
     </div>
   </div>
 </section>
@@ -2898,7 +2945,7 @@ button {
         <ul>
           <li><a href="#servicos">Guindastes</a></li>
           <li><a href="#servicos">Caminhões Munck</a></li>
-          <li><a href="#servicos">Jateamento Industrial</a></li>
+          <!-- JATEAMENTO removido: <li><a href="#servicos">Jateamento Industrial</a></li> -->
         </ul>
       </div>
 
