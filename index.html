@@ -2820,6 +2820,172 @@ button {
     justify-content: center;
   }
 }
+
+/* ============================
+   AVISO DE COOKIES (LGPD)
+============================ */
+.cookie-consent {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 1000;
+  width: 100%;
+  max-width: 430px;
+  background: linear-gradient(160deg, var(--azul-escuro), var(--azul-noite));
+  border: 1px solid rgba(123, 179, 232, 0.18);
+  border-radius: 10px;
+  padding: 26px 26px 22px;
+  box-shadow: 0 24px 60px rgba(10, 15, 26, 0.45);
+  color: var(--off-white);
+  transform: translateY(140%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.6s var(--ease-out), opacity 0.6s var(--ease-out);
+}
+
+.cookie-consent.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cookie-consent-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.cookie-consent-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(74, 144, 217, 0.14);
+  border: 1px solid rgba(123, 179, 232, 0.2);
+}
+
+.cookie-consent-icon svg {
+  width: 22px;
+  height: 22px;
+  color: var(--azul-luminoso);
+}
+
+.cookie-consent-eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--azul-luminoso);
+}
+
+.cookie-consent-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--branco);
+  line-height: 1;
+  margin-top: 3px;
+}
+
+.cookie-consent p {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--cinza-suave);
+  margin-bottom: 20px;
+}
+
+.cookie-consent p a {
+  color: var(--azul-luminoso);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+
+.cookie-consent p a:hover {
+  color: var(--azul-glow);
+}
+
+.cookie-consent-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.cookie-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 18px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 4px;
+  transition: all 0.3s var(--ease-out);
+}
+
+.cookie-btn-accept {
+  background: var(--azul-medio);
+  color: var(--branco);
+}
+
+.cookie-btn-accept:hover {
+  background: var(--azul-claro);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(46, 107, 190, 0.4);
+}
+
+.cookie-btn-reject {
+  background: transparent;
+  color: var(--cinza-suave);
+  border: 1px solid rgba(123, 179, 232, 0.25);
+}
+
+.cookie-btn-reject:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--branco);
+  border-color: rgba(123, 179, 232, 0.45);
+}
+
+.cookie-btn:focus-visible,
+.cookie-consent p a:focus-visible {
+  outline: 2px solid var(--azul-luminoso);
+  outline-offset: 2px;
+}
+
+/* Mobile: vira uma barra na base e sobe o botão do WhatsApp enquanto o aviso aparece */
+@media (max-width: 768px) {
+  .cookie-consent {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    max-width: none;
+    padding: 22px 20px 20px;
+  }
+
+  body.cookie-aviso-ativo .whatsapp-float {
+    bottom: var(--cookie-lift, 215px);
+  }
+}
+
+/* Respeita quem prefere menos animação */
+@media (prefers-reduced-motion: reduce) {
+  .cookie-consent {
+    transform: none;
+    transition: opacity 0.3s ease;
+  }
+  .cookie-consent.show {
+    transform: none;
+  }
+}
 </style>
 </head>
 <body>
@@ -3673,6 +3839,39 @@ button {
   </svg>
 </a>
 
+<!-- ============================
+     AVISO DE COOKIES (LGPD)
+     IMPORTANTE: troque "politica-de-privacidade.html" pela URL real
+     da sua Política de Privacidade.
+============================ -->
+<div class="cookie-consent" id="cookieConsent" role="region" aria-label="Aviso de cookies">
+  <div class="cookie-consent-header">
+    <span class="cookie-consent-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5Z"/>
+        <path d="M8.5 8.5v.01"/>
+        <path d="M16 15.5v.01"/>
+        <path d="M12 12v.01"/>
+        <path d="M11 17v.01"/>
+        <path d="M7 14v.01"/>
+      </svg>
+    </span>
+    <span>
+      <span class="cookie-consent-eyebrow">Privacidade</span>
+      <h3 class="cookie-consent-title">Cookies</h3>
+    </span>
+  </div>
+
+  <p>
+    Usamos cookies para melhorar sua navegação, analisar o tráfego do site e personalizar conteúdo. Ao continuar, você concorda com a nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.
+  </p>
+
+  <div class="cookie-consent-actions">
+    <button type="button" class="cookie-btn cookie-btn-reject" id="cookieReject">Rejeitar</button>
+    <button type="button" class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceitar</button>
+  </div>
+</div>
+
 <script>
 /* =========================================================
    BC LOCAÇÕES — LANDING PAGE
@@ -3790,6 +3989,59 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       }
     });
   });
+})();
+
+// ============================
+// AVISO DE COOKIES (LGPD)
+// Mostra o aviso até o visitante escolher e lembra a escolha no navegador.
+// ============================
+(function () {
+  const STORAGE_KEY = 'bcCookieConsent';
+  const banner = document.getElementById('cookieConsent');
+  if (!banner) return;
+
+  const btnAccept = document.getElementById('cookieAccept');
+  const btnReject = document.getElementById('cookieReject');
+
+  // Lê a escolha salva (protegido caso o navegador bloqueie o armazenamento)
+  let salvo = null;
+  try { salvo = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+
+  // Já escolheu antes? Então não mostra de novo.
+  if (salvo === 'accepted' || salvo === 'rejected') return;
+
+  // Mede a altura do aviso para subir o botão do WhatsApp no mobile
+  function ajustarLift() {
+    const altura = banner.offsetHeight + 36;
+    document.documentElement.style.setProperty('--cookie-lift', altura + 'px');
+  }
+
+  function mostrar() {
+    document.body.classList.add('cookie-aviso-ativo');
+    ajustarLift();
+    banner.classList.add('show');
+  }
+
+  function esconder() {
+    banner.classList.remove('show');
+    document.body.classList.remove('cookie-aviso-ativo');
+    setTimeout(() => { banner.style.display = 'none'; }, 650);
+  }
+
+  function salvar(valor) {
+    try { localStorage.setItem(STORAGE_KEY, valor); } catch (e) {}
+    esconder();
+  }
+
+  if (btnAccept) btnAccept.addEventListener('click', () => salvar('accepted'));
+  if (btnReject) btnReject.addEventListener('click', () => salvar('rejected'));
+
+  window.addEventListener('resize', () => {
+    if (document.body.classList.contains('cookie-aviso-ativo')) ajustarLift();
+  });
+
+  // Pequeno atraso para o aviso entrar suavemente após o carregamento
+  setTimeout(mostrar, 800);
 })();
 
 </script>
